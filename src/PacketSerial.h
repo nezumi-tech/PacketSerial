@@ -277,8 +277,9 @@ public:
                                                 size,
                                                 _encodeBuffer);
 
-        _stream->write(_encodeBuffer, numEncoded);
-        _stream->write(PacketMarker);
+        _stream->write(_encodeBuffer + PacketMarker, numEncoded + 1);
+        //_stream->write(_encodeBuffer, numEncoded);
+        //_stream->write(PacketMarker);
     }
 
     /// \brief Set the function that will receive decoded packets.
